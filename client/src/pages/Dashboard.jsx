@@ -69,7 +69,7 @@ const Dashboard = () => {
   const [buttonLoading, setButtonLoading] = useState(false);
   const [todaysWorkouts, setTodaysWorkouts] = useState([]);
   const [workout, setWorkout] = useState(`#Legs
--Back Squat
+-Deadlifts
 -5 setsX15 reps
 -30 kg
 -10 min`);
@@ -86,16 +86,21 @@ const Dashboard = () => {
   const getTodaysWorkout = async () => {
     setLoading(true);
     const token = localStorage.getItem("fittrack-app-token");
+    
     await getWorkouts(token, "").then((res) => {
       setTodaysWorkouts(res?.data?.todaysWorkouts);
       console.log(res.data);
       setLoading(false);
+    })
+    .catch((err) => {
+      alert("Error in add workout");
     });
   };
 
   const addNewWorkout = async () => {
     setButtonLoading(true);
     const token = localStorage.getItem("fittrack-app-token");
+    
     await addWorkout(token, { workoutString: workout })
       .then((res) => {
         dashboardData();

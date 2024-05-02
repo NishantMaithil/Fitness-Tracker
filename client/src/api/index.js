@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8080/api",
+   baseURL: "http://localhost:8080/api",
+ // baseURL: "https://fitness-tracker-yenx.onrender.com/api",
 });
 
 export const UserSignUp = async(data) => API.post("/user/signup", data);
@@ -12,7 +13,6 @@ export const getDashboardDetails = async (token) =>
   API.get("/user/dashboard", {
     headers: { Authorization: `Bearer ${token}` },
   });
-
 export const getWorkouts = async (token, date) =>
   await API.get(`/user/workout${date}`, {
     headers: { Authorization: `Bearer ${token}` },

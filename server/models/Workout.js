@@ -14,7 +14,9 @@ const WorkoutSchema = new mongoose.Schema(
     workoutName: {
       type: String,
       required: true,
-      unique: true,
+      unique : false,
+      
+      
     },
     sets: {
       type: Number,

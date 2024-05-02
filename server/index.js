@@ -2,7 +2,7 @@ import express from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
- import UserRoutes from "./routes/User.js";
+import UserRoutes from "./routes/User.js";
 
 dotenv.config();
 
@@ -39,7 +39,6 @@ const connectDB = () => {
       console.error(err);
     });
 };
-
 const startServer = async () => {
   try {
     connectDB();
@@ -50,3 +49,6 @@ const startServer = async () => {
 };
 
 startServer();
+
+
+
